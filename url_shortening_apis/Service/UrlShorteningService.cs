@@ -6,11 +6,14 @@ namespace url_shortening_apis.Service
     public class UrlShorteningService : IUrlShorteningService
     {
         private readonly ILocalStorage storage;
+        private readonly IConfigurationRoot config = new ConfigurationBuilder()
+          .AddJsonFile("appsettings.json", optional: false)
+          .Build();
+
         public UrlShorteningService(ILocalStorage _storage)
         {
             storage = _storage;
         }
-
         public async Task<string> ShortenUrl(UrlModel inputUrlModel)
         {
             /// validate user url
@@ -19,17 +22,17 @@ namespace url_shortening_apis.Service
                 /// handle collision
                 string NewUID = GenerateNewUID();
 
+                string? domainAbbr = config?.GetSection("shortUrlAbb:KeyVal").Value;
+                domainAbbr = domainAbbr ?? "https://mydomain.com/";
+
                 if (!storage.KeyExists(NewUID))
                 {
                     storage.AddToStorage(NewUID, inputUrlModel);
-                    return NewUID;
+                    return $"{domainAbbr}{NewUID}";
                 }
                 else
                 {
                     /// configs retry count
-                    IConfigurationRoot config = new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json", optional: false)
-                    .Build();
                     int? retry = int.Parse(config?.GetSection("retrys:maxRetryCountToGetNewUID").Value);
 
                     // if config was not found
@@ -42,7 +45,7 @@ namespace url_shortening_apis.Service
                         if (!storage.KeyExists(NewUID))
                         {
                             _ = storage.AddToStorage(NewUID, inputUrlModel);
-                            return NewUID;
+                            return $"{domainAbbr}{NewUID}";
                         }
                     }
                     //// try maxed out

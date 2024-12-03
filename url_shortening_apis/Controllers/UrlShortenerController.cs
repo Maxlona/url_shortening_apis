@@ -37,10 +37,7 @@ namespace url_shortening_apis.Controllers
                     IConfigurationRoot config = new ConfigurationBuilder()
                    .AddJsonFile("appsettings.json", optional: false)
                    .Build();
-
-                    string? domainAbbr = config?.GetSection("shortUrlAbb:KeyVal").Value;
-                    domainAbbr = domainAbbr ?? "https://mydomain.com/";
-                    return Ok($"{domainAbbr}{shortUrl}");
+                    return Ok($"{shortUrl}");
                 }
                 else
                     return BadRequest("Bad user data");
