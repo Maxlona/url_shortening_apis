@@ -34,17 +34,16 @@ namespace url_shortening_apis.Controllers
 
                 if (!string.IsNullOrEmpty(shortUrl))
                 {
-                    IConfigurationRoot config = new ConfigurationBuilder()
-                   .AddJsonFile("appsettings.json", optional: false)
-                   .Build();
-                    return Ok($"{shortUrl}");
+                    return Ok(shortUrl);
                 }
                 else
-                    return BadRequest("Bad user data");
+                {
+                    return StatusCode(500, "Failed to generate short URL");
+                }
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
