@@ -68,10 +68,13 @@ namespace url_shortening_apis.Controllers
                 }
 
                 if (!string.IsNullOrEmpty(FullUrl.LongUrl))
-                    return Ok(FullUrl.LongUrl);
-                else
-                    return NoContent();
+                {
+                    //if called in browser it will redirtect
+                    return Redirect($"{FullUrl.LongUrl}");
+                }
 
+                /// bad or invalid data
+                return StatusCode(StatusCodes.Status400BadRequest, "Invalid URL");
             }
             catch (Exception ex)
             {
