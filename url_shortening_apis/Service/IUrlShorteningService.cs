@@ -4,7 +4,7 @@ namespace url_shortening_apis.Service
 {
     public interface IUrlShorteningService
     {
-        Task<string> GetOriginalUrl(string shortUrl);
-        Task<string> ShortenUrl(UrlModel originalUrl);
+        Task<UrlModel> GetOriginalUrl(string shortUrl);
+        Task<string> ShortenUrl(UrlModel inputUrlModel);
     }
 }
