@@ -59,9 +59,8 @@ namespace url_shortening_apis.Service
 
         /// This can run async on a diffrent thread, as a background service to avoid blocking the main thread
 
-        ////////////////// this should generate up to 839,299,365,868,340,224 unique IDs
-        /// 10 chars should generate up to (26+26+10) 62 ^ 10 
-        /// small chars abc, ABC, 123 to the power of 10
+        ////////////////// this should generate up to 1,099,511,627,776 trillion unique UIDs
+        /// 0-9 and a-f ^ 10
         
         private string GenerateNewUID()
         {
