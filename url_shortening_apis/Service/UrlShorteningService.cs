@@ -59,9 +59,10 @@ namespace url_shortening_apis.Service
 
         /// This can run async on a diffrent thread, as a background service to avoid blocking the main thread
 
-        ////////////////// this should generate up to 6,760 billion unique id
-        /// 10 chars should generate up to 26*26*10 ^ 10 
+        ////////////////// this should generate up to 839,299,365,868,340,224 unique IDs
+        /// 10 chars should generate up to (26+26+10) 62 ^ 10 
         /// small chars abc, ABC, 123 to the power of 10
+        
         private string GenerateNewUID()
         {
             return Guid.NewGuid().ToString().Replace("-", "").Substring(0, 10);
