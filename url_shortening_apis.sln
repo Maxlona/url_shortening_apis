@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35323.107
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url_shortening_apis", "url_shortening_apis\url_shortening_apis.csproj", "{0A66662B-7086-4DED-B77B-CC0F98DCA010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrlServiceUnitTest", "ShortUrlServiceUnitTest\ShortUrlServiceUnitTest.csproj", "{B5834A49-5AB4-4088-A153-456F5986CFDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A66662B-7086-4DED-B77B-CC0F98DCA010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A66662B-7086-4DED-B77B-CC0F98DCA010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A66662B-7086-4DED-B77B-CC0F98DCA010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A66662B-7086-4DED-B77B-CC0F98DCA010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5834A49-5AB4-4088-A153-456F5986CFDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5834A49-5AB4-4088-A153-456F5986CFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5834A49-5AB4-4088-A153-456F5986CFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5834A49-5AB4-4088-A153-456F5986CFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D92BB278-6B34-4130-A27E-BB13B9BC4710}
+	EndGlobalSection
+EndGlobal
