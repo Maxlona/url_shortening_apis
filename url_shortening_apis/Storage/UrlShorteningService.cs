@@ -28,6 +28,8 @@ namespace url_shortening_apis.Service
                     int retry = 10;
                     for (int i = 0; i < retry; i++)
                     {
+                        NewUID = GenerateNewUID();
+
                         if (!_urlMappings.ContainsKey(NewUID))
                         {
                             _ = _urlMappings.TryAdd(NewUID, originalUrl.OriginalUrl);
