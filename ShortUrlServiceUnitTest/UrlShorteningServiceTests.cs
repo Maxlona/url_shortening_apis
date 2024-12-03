@@ -35,8 +35,12 @@ namespace ShortUrlServiceUnitTest
             // Arrange
             var inputUrlModel = new UrlModel { LongUrl = "https://example.com" };
             storage.KeyExists(Arg.Any<string>()).Returns(false);
+            
             // Act
+
             var result = await _urlShorteningService.ShortenUrl(inputUrlModel);
+            // remove domain base url
+            result = result.Replace("https://localhost:7148/UrlShortener/api/", string.Empty);
             // Assert
             Assert.NotNull(result);
             storage.Received(1).AddToStorage(result, inputUrlModel);
