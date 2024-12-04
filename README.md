@@ -1,4 +1,4 @@
-URL Shortening Serice,
+URL Shortening Service,
 
 **Assumbtions:**
 The Service uses local storage (Concurrent bag)
