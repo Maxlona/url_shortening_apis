@@ -11,19 +11,14 @@ namespace url_shortening_apis.Storage
         {
             if (!KeyExists(Key))
             {
-                _ = _urlMappings.TryAdd(Key, Model);
-                return true;
+               return _urlMappings.TryAdd(Key, Model);
             }
-
             return false;
         }
 
         public bool KeyExists(string Key)
         {
-            if (_urlMappings.ContainsKey(Key))
-                return true;
-            else
-                return false;
+            return _urlMappings.ContainsKey(Key);
         }
 
         public UrlModel GetFromStorage(string Key)
